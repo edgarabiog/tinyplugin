@@ -1,19 +1,42 @@
 {
-  "name": "my-first-plugin",
-  "version": "0.1.0",
-  "private": true,
+  "name": "datocms-plugin-tinymce-rich-text",
+  "homepage": "https://edgarabiog.github.io/tinyplugin",
+  "description": "Custom TinyMCE HTML editor",
+  "version": "0.1.9",
+  "author": "DatoCMS <support@datocms.com>",
+  "license": "ISC",
+  "keywords": [
+    "datocms",
+    "datocms-plugin",
+    "field-editor",
+    "text-field",
+    "wysiwyg",
+    "rich-text"
+  ],
+  "files": [
+    "docs",
+    "build"
+  ],
   "dependencies": {
-    "@types/node": "^18.11.9",
-    "@types/react": "^18.0.25",
-    "@types/react-dom": "^18.0.9",
-    "datocms-plugin-sdk": "^0.6.15",
-    "datocms-react-ui": "^0.6.15",
-    "react": "^18.2.0",
-    "react-dom": "^18.2.0",
-    "react-scripts": "5.0.1",
-    "typescript": "^4.9.3"
+    "@tinymce/tinymce-react": "^3.14.0",
+    "@types/node": "^16.11.14",
+    "@types/qs": "^6.9.7",
+    "@types/react": "^17.0.37",
+    "@types/react-dom": "^17.0.11",
+    "@types/tinymce": "^4.6.4",
+    "datocms-plugin-sdk": "^0.5.2",
+    "datocms-react-ui": "^0.5.2",
+    "fs-extra": "^11.0.0",
+    "qs": "^6.10.2",
+    "react": "^17.0.2",
+    "react-dom": "^17.0.2",
+    "react-scripts": "5.0.0",
+    "tinymce": "^5.10.6",
+    "typescript": "^4.5.4"
   },
   "scripts": {
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d build",
     "start": "cross-env BROWSER='none' PUBLIC_URL='/' react-scripts start",
     "build": "cross-env PUBLIC_URL='.' react-scripts build",
     "test": "react-scripts test",
@@ -38,12 +61,14 @@
     ]
   },
   "devDependencies": {
-    "cross-env": "^7.0.3"
+    "@types/lodash": "^4.14.178",
+    "cross-env": "^7.0.3",
+    "gh-pages": "^4.0.0"
   },
   "datoCmsPlugin": {
-    "title": "",
-    "previewImage": "",
-    "coverImage": "",
+    "title": "Testing Editor",
+    "previewImage": "docs/rich-editor-plugin-preview.png",
+    "coverImage": "docs/cover.png",
     "entryPoint": "build/index.html"
   }
 }
