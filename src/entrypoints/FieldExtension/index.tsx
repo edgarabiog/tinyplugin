@@ -1,7 +1,7 @@
 import { RenderFieldExtensionCtx } from 'datocms-plugin-sdk';
 import { Canvas } from 'datocms-react-ui';
 import get from 'lodash/get';
-// import tinymce from 'tinymce/tinymce';
+import tinymce from 'tinymce/tinymce';
 import { Editor as ReactEditor } from '@tinymce/tinymce-react';
 import imgixThumbUrl from '../../utils/imgixThumbUrl';
 import { Editor } from 'tinymce';
@@ -9,22 +9,20 @@ import { useCallback, useEffect, useRef, useState } from 'react';
 import Sidebar from '../../Sidebar';
 // import { buildClient } from '@datocms/cma-client-browser';
 
-// (global as any).tinymce = tinymce;
+(global as any).tinymce = tinymce;
 
-// require('tinymce/icons/default');
-// require('tinymce/themes/silver');
-// require('tinymce/skins/ui/oxide/skin.css');
-// require('tinymce/plugins/image');
-// require('tinymce/plugins/advlist');
-// require('tinymce/plugins/code');
-// require('tinymce/plugins/emoticons');
-// require('tinymce/plugins/emoticons/js/emojis');
-// require('tinymce/plugins/link');
-// require('tinymce/plugins/lists');
-// require('tinymce/plugins/paste');
-// require('tinymce/plugins/table');
-// require('tinymce/plugins/autoresize');
-// require('tinymce/plugins/media');
+require('tinymce/icons/default');
+require('tinymce/themes/silver');
+require('tinymce/skins/ui/oxide/skin.css');
+require('tinymce/plugins/image');
+require('tinymce/plugins/advlist');
+require('tinymce/plugins/code');
+require('tinymce/plugins/link');
+require('tinymce/plugins/lists');
+require('tinymce/plugins/paste');
+require('tinymce/plugins/table');
+require('tinymce/plugins/fullscreen');
+require('tinymce/plugins/media');
 // require('../../loopindex/lance/plugin');
 // require('../../loopindex/lance/js/annotationsui.min.js');
 
@@ -162,19 +160,20 @@ export default function FieldExtension({ ctx }: Props) {
 		height: 500,
 		menubar: false,
 		plugins: [
-			'advlist', 'autolink', 'lists', 'link', 'image', 'charmap', 'preview',
-			'anchor', 'searchreplace', 'visualblocks', 'code', 'fullscreen',
-			'insertdatetime', 'media', 'table', 'code', 'help', 'wordcount'
+			'advlist', 'lists', 'link', 'image',
+			'fullscreen', 'formatselect',
+			'media', 'table', 'code'
 		],
 		external_plugins: {
 			lance: "/lance/plugin.min.js",
 		},
-		toolbar: 'undo redo | blocks | media link customimage |' +
+		toolbar: 'undo redo | formatselect | media link customimage |' +
 			'bold italic forecolor | table | alignleft aligncenter ' +
 			'alignright alignjustify | bullist numlist outdent indent | ' +
-			'removeformat | code fullscreen help',
+			'removeformat | code fullscreen',
 		content_style: 'body { font-family:Helvetica,Arial,sans-serif; font-size:14px }',
     setup: initialize,
+    resize: true,
     autoresize_bottom_margin: 10,
 	});
 
@@ -237,7 +236,7 @@ export default function FieldExtension({ ctx }: Props) {
     <Canvas ctx={ctx}>
       <ReactEditor
         disabled={ctx.disabled}
-        tinymceScriptSrc="/tinymce/js/tinymce/tinymce.min.js"
+        // tinymceScriptSrc="/tinymce/js/tinymce/tinymce.min.js"
         onInit = {onEditorInited}
         init={editorConfig}
         //   {
