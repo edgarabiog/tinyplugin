@@ -3,9 +3,47 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <script type="text/javascript" src="./lance/js/annotationsui.min.js"></script>
+    <style>
+      .top {
+        width: 100%;
+        display: inline-block;
+        /* justify-content: flex-start;
+        align-items: center;
+        flex-direction: column; */
+      }
+
+      .main {
+        width: 100%;
+        display: inline-block;
+        flex-direction: row;
+      }
+
+      .tox {
+        float: left;
+        margin-right: 0px;
+        width: 500px;
+      }
+
+      .sidebar {
+        margin: 0;
+        float: right;
+        width: 250px;
+        background-color: white;
+      }
+
+      .lance-content-scroller {
+        border-color: white !important;
+      }
+    </style>
   </head>
   <body>
     <noscript>You need to enable JavaScript to run this app.</noscript>
-    <div id="root"></div>
+    <div class="top">
+      <div class="main">
+        <div id="root"></div>
+      </div>
+    </div>
   </body>
 </html>

@@ -18,6 +18,8 @@
     "build"
   ],
   "dependencies": {
+    "@datocms/cma-client-browser": "^1.2.4",
+    "@datocms/cma-client-node": "^1.2.4",
     "@tinymce/tinymce-react": "^3.14.0",
     "@types/node": "^16.11.14",
     "@types/qs": "^6.9.7",
@@ -66,7 +68,7 @@
     "gh-pages": "^4.0.0"
   },
   "datoCmsPlugin": {
-    "title": "Testing Editor",
+    "title": "Custom Built Editor",
     "previewImage": "docs/rich-editor-plugin-preview.png",
     "coverImage": "docs/cover.png",
     "entryPoint": "build/index.html"
