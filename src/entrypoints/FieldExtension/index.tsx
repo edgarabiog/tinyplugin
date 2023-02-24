@@ -23,8 +23,8 @@ require('tinymce/plugins/paste');
 require('tinymce/plugins/table');
 require('tinymce/plugins/fullscreen');
 require('tinymce/plugins/media');
-// require('../../loopindex/lance/plugin');
-// require('../../loopindex/lance/js/annotationsui.min.js');
+require('../../loopindex/lance/plugin');
+require('../../loopindex/lance/js/annotationsui.min.js');
 
 const chars = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
 
@@ -161,7 +161,7 @@ export default function FieldExtension({ ctx }: Props) {
 		menubar: false,
 		plugins: [
 			'advlist', 'lists', 'link', 'image',
-			'fullscreen', 'formatselect',
+			'fullscreen',
 			'media', 'table', 'code'
 		],
 		external_plugins: {
