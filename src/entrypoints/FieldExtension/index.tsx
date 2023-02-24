@@ -23,8 +23,8 @@ require('tinymce/plugins/paste');
 require('tinymce/plugins/table');
 require('tinymce/plugins/fullscreen');
 require('tinymce/plugins/media');
-require('../../loopindex/lance/plugin.min.js');
-require('../../loopindex/lance/js/annotationsui.min.js');
+require('lance/plugin.min.js');
+require('lance/js/annotationsui.min.js');
 
 const chars = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
 
