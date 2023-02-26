@@ -95,7 +95,7 @@ export default function FieldExtension({ ctx }: Props) {
 			var lance = event.lance,
 				ann = lance.getAnnotations();
 			ann.addUsers(users);
-			ann.setUserId(28295);
+			ann.setUserId(28625);
 		});
 	}, [])
 
