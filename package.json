@@ -1,6 +1,6 @@
 {
   "name": "datocms-plugin-tinymce-rich-text",
-  "homepage": ".",
+  "homepage": "https://edgarabiog.github.io/tinyplugin/",
   "description": "Custom TinyMCE HTML editor",
   "version": "0.1.9",
   "author": "DatoCMS <support@datocms.com>",
