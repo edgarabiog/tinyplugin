@@ -82,6 +82,7 @@ export default function FieldExtension({ ctx }: Props) {
 
   const [value, setValue] = useState(externalValue || '');
   const expectedValue = useRef<string | null>(null);
+  const userID = ctx.currentUser.id;
 
   const editorRef = useRef(null);
   const [lance, setLance] = useState(null);
@@ -95,7 +96,7 @@ export default function FieldExtension({ ctx }: Props) {
 			var lance = event.lance,
 				ann = lance.getAnnotations();
 			ann.addUsers(users);
-			ann.setUserId(ctx.currentUser.id);
+			ann.setUserId(userID);
 		});
 	}, [])
 
