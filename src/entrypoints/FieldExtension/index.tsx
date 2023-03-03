@@ -77,6 +77,11 @@ type Props = {
 // **within 200 milliseconds** to prevent the changes being rolled back.
 
 export default function FieldExtension({ ctx }: Props) {
+
+  var obj = JSON.stringify(ctx.currentUser.attributes)
+  var obj1 = JSON.parse(obj)
+  var username = obj1.full_name;
+
   const externalValue =
     (get(ctx.formValues, ctx.fieldPath) as string | null) || '';
 
@@ -166,15 +171,26 @@ export default function FieldExtension({ ctx }: Props) {
 		],
 		external_plugins: {
 			lance: "/lance/plugin.min.js",
+      flite: "/flite/plugin.min.js"
 		},
 		toolbar: 'undo redo | formatselect | media link customimage |' +
 			'bold italic forecolor | table | alignleft aligncenter ' +
 			'alignright alignjustify | bullist numlist outdent indent | ' +
-			'removeformat | code fullscreen',
+			'removeformat | code fullscreen flite',
 		content_style: 'body { font-family:Helvetica,Arial,sans-serif; font-size:14px }',
     setup: initialize,
     resize: true,
     autoresize_bottom_margin: 10,
+    flite: {
+      contextmenu: true,
+      isTracking: true,
+      isVisible: true,
+      // addUsers: users,
+      user: {
+        id: ctx.currentUser.id,
+        name: username
+      }
+    }
 	});
 
   useEffect(() => {
